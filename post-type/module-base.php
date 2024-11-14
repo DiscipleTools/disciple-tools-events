@@ -54,6 +54,8 @@ class DT_Training_Base extends DT_Module_Base {
         //list
         add_filter( 'dt_user_list_filters', [ $this, 'dt_user_list_filters' ], 10, 2 );
         add_filter( 'dt_filter_access_permissions', [ $this, 'dt_filter_access_permissions' ], 20, 2 );
+        add_filter( 'dt_list_posts_custom_fields', [ $this, 'dt_list_posts_custom_fields' ], 10, 2 );
+
     }
 
     // setup post type
@@ -247,7 +249,7 @@ class DT_Training_Base extends DT_Module_Base {
                 'icon' => get_template_directory_uri() . '/dt-assets/images/phone.svg',
                 'type' => 'datetime_series',
                 'tile' => 'meeting_times',
-                'customizable' => false,
+                'customizable' => true,
                 'in_create_form' => true,
                 'custom_display' => true
             ];
@@ -616,7 +618,7 @@ class DT_Training_Base extends DT_Module_Base {
 
     public function dt_post_update_fields( $fields, $post_type, $post_id, $existing_post ){
         if ( 'trainings' === $post_type ){
-
+dt_write_log( $fields );
 //            @todo, share with user with post assigned to user.
 
             // meeting_times (datetime_series field type)
@@ -948,6 +950,82 @@ class DT_Training_Base extends DT_Module_Base {
             }
         }
         return $permissions;
+    }
+
+    public static function dt_list_posts_custom_fields( $data, $post_type ) {
+        $updated_data = [];
+        if ( $post_type === 'trainings' ) {
+
+            // Ensure custom fields, typically overlooked during main core list flow, are captured.
+            $ids = [];
+            $updated_posts = [];
+            $posts = $data['posts'] ?? [];
+            foreach ( $posts as $post ) {
+                if ( isset( $post['ID'] ) ) {
+                    //$ids[] = $post['ID'];
+                    DT_Posts::adjust_post_custom_fields( $post_type, $post['ID'], $post, [], null, null );
+
+                    //dt_write_log( $post );
+                }
+                $updated_posts[] = $post;
+            }
+
+            $data['posts'] = $updated_posts;
+            if ( !empty( $ids ) ) {
+                global $wpdb;
+
+                /*$ids_sql = dt_array_to_sql( $ids );
+
+                // phpcs:disable
+                // WordPress.WP.PreparedSQL.NotPrepared
+                $all_post_meta = $wpdb->get_results( "
+                    SELECT *
+                        FROM $wpdb->postmeta pm
+                        WHERE pm.post_id IN ( $ids_sql )
+                        AND pm.meta_key LIKE 'meeting_times_%'
+                ", ARRAY_A );
+                // phpcs:enable
+
+                dt_write_log( $all_post_meta );
+                // Include meeting times for corresponding posts.
+                foreach ( $all_post_meta ?? [] as $post_meta ) {
+                    if ( isset( $post_meta['post_id'] ) ) {
+                        foreach ( $posts as $post ) {
+                            if ( isset( $post['ID'] ) && ( $post['ID'] === $post_meta['post_id'] ) ) {
+
+                            }
+                        }
+                    }
+                }*/
+
+
+
+
+
+                /*foreach ( $all_post_meta ?? [] as $post_meta ) {
+                    if ( isset( $post_meta['post_id'], $post_meta['meta_value'] ) ) {
+                        foreach ( $data['posts'] ?? [] as &$post ) {
+                            if ( isset( $post['ID'] ) && ( $post['ID'] === $post_meta['post_id'] ) ) {
+
+                                if ( !isset( $post['meeting_times'] ) || !is_array( $post['meeting_times'] ) ) {
+                                    $post['meeting_times'] = [];
+                                }
+
+                                $post['meeting_times'][] = [
+                                    'timestamp' => $post_meta['meta_value']
+                                ];
+
+                                dt_write_log( $post );
+                            }
+                        }
+                    }
+                }*/
+            }
+        }
+
+        dt_write_log( $data );
+
+        return $data;
     }
 
     private static function check_requires_update( $training_id ){
