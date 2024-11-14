@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Disciple.Tools - Training 2.6.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/disciple-tools-"
 "training\n"
-"POT-Creation-Date: 2024-09-26T12:22:38+00:00\n"
+"POT-Creation-Date: 2024-11-14T11:03:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -20,12 +20,9 @@ msgstr ""
 msgid "Training Maps"
 msgstr ""
 
-#: metrics/mapbox-maps.php:31
-#: metrics/mapbox-personal-maps.php:31
-#: post-type/module-base.php:29
-#: post-type/module-base.php:461
-#: post-type/module-base.php:473
-#: post-type/module-base.php:496
+#: metrics/mapbox-maps.php:31 metrics/mapbox-personal-maps.php:31
+#: post-type/module-base.php:29 post-type/module-base.php:461
+#: post-type/module-base.php:473 post-type/module-base.php:496
 msgid "Trainings"
 msgstr ""
 
@@ -45,8 +42,7 @@ msgstr ""
 msgid "Training Completed"
 msgstr ""
 
-#: post-type/module-base.php:28
-#: post-type/module-base.php:495
+#: post-type/module-base.php:28 post-type/module-base.php:495
 msgid "Training"
 msgstr ""
 
@@ -76,7 +72,8 @@ msgstr ""
 
 #: post-type/module-base.php:128
 msgctxt "Optional Documentation"
-msgid "A useful way to group related items and can be used to filter the records"
+msgid ""
+"A useful way to group related items and can be used to filter the records"
 msgstr ""
 
 #: post-type/module-base.php:135
@@ -148,7 +145,9 @@ msgstr ""
 
 #: post-type/module-base.php:188
 msgctxt "Training Status field description"
-msgid "This contact is currently on hold. It has potential of getting scheduled in the future."
+msgid ""
+"This contact is currently on hold. It has potential of getting scheduled in "
+"the future."
 msgstr ""
 
 #: post-type/module-base.php:192
@@ -166,7 +165,8 @@ msgid "Assigned To"
 msgstr ""
 
 #: post-type/module-base.php:202
-msgid "Select the main person who is responsible for reporting on this training."
+msgid ""
+"Select the main person who is responsible for reporting on this training."
 msgstr ""
 
 #: post-type/module-base.php:209
@@ -175,7 +175,10 @@ msgstr ""
 
 #: post-type/module-base.php:210
 msgctxt "Optional Documentation"
-msgid "The person who planted and/or is coaching this training. Only one person can be assigned to a training while multiple people can be coaches / church planters of this training."
+msgid ""
+"The person who planted and/or is coaching this training. Only one person can "
+"be assigned to a training while multiple people can be coaches / church "
+"planters of this training."
 msgstr ""
 
 #: post-type/module-base.php:222
@@ -200,18 +203,15 @@ msgctxt "Optional Documentation"
 msgid "Notes on when the trainings will happen"
 msgstr ""
 
-#: post-type/module-base.php:246
-#: post-type/module-base.php:509
+#: post-type/module-base.php:246 post-type/module-base.php:509
 msgid "Meeting Times"
 msgstr ""
 
-#: post-type/module-base.php:295
-#: post-type/module-base.php:304
+#: post-type/module-base.php:295 post-type/module-base.php:304
 msgid "Locations"
 msgstr ""
 
-#: post-type/module-base.php:296
-#: post-type/module-base.php:305
+#: post-type/module-base.php:296 post-type/module-base.php:305
 msgctxt "Optional Documentation"
 msgid "The general location where this contact is located."
 msgstr ""
@@ -235,7 +235,9 @@ msgstr ""
 
 #: post-type/module-base.php:345
 msgctxt "Optional Documentation"
-msgid "A related training that isn't a parent/child in relationship. It might indicate trainings that collaborate, are about to merge, recently split, etc."
+msgid ""
+"A related training that isn't a parent/child in relationship. It might "
+"indicate trainings that collaborate, are about to merge, recently split, etc."
 msgstr ""
 
 #: post-type/module-base.php:355
@@ -247,8 +249,7 @@ msgctxt "Optional Documentation"
 msgid "A training that has been birthed out of this training."
 msgstr ""
 
-#: post-type/module-base.php:366
-#: post-type/module-base.php:508
+#: post-type/module-base.php:366 post-type/module-base.php:508
 #: post-type/module-base.php:542
 msgid "Member List"
 msgstr ""
@@ -279,10 +280,13 @@ msgstr ""
 msgid "Member Count"
 msgstr ""
 
-#: post-type/module-base.php:410
-#: post-type/module-base.php:417
+#: post-type/module-base.php:410 post-type/module-base.php:417
 msgctxt "Optional Documentation"
-msgid "The number of members in this training. It will automatically be updated when new members are added or removed in the member list. Change this number manually to included people who may not be in the system but are also members of the training."
+msgid ""
+"The number of members in this training. It will automatically be updated "
+"when new members are added or removed in the member list. Change this number "
+"manually to included people who may not be in the system but are also "
+"members of the training."
 msgstr ""
 
 #: post-type/module-base.php:416
@@ -330,7 +334,9 @@ msgstr ""
 
 #: post-type/module-base.php:561
 msgctxt "Add members modal"
-msgid "In the 'Member List' field, type the name of an existing contact to add them to this training."
+msgid ""
+"In the 'Member List' field, type the name of an existing contact to add them "
+"to this training."
 msgstr ""
 
 #: post-type/module-base.php:573
@@ -433,8 +439,7 @@ msgstr ""
 msgid "Use"
 msgstr ""
 
-#: post-type/module-registration.php:267
-#: post-type/module-registration.php:695
+#: post-type/module-registration.php:267 post-type/module-registration.php:695
 msgid "Search Location"
 msgstr ""
 
